@@ -12,7 +12,6 @@ import { Brand } from './Brand'
 import { MagneticButton } from './MagneticButton'
 import { PassportButton } from '../culture/Passport'
 import { StampFeedback } from '../culture/StampFeedback'
-import { WindowReveal } from '../culture/WindowReveal'
 
 const GITHUB_URL = 'https://github.com/babybitter/scenic-ai-guide'
 
@@ -338,7 +337,6 @@ export function SiteLayout() {
           </div>
         </div>
       </header>
-      <WindowReveal />
       <StampFeedback />
       <main>
         <Outlet />

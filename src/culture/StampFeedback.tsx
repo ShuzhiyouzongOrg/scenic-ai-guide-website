@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { ChineseSeal } from './ChineseSeal'
+import { SealPress } from './SealPress'
+import { motionSpec } from './motion'
 
 // The stamp lives outside the route so a client-side link can finish navigating immediately.
 export function StampFeedback() {
@@ -15,11 +16,11 @@ export function StampFeedback() {
       const rect = button.getBoundingClientRect()
       window.clearTimeout(clearStamp)
       setStamp({
-        x: Math.max(2, Math.min(rect.right - 16, window.innerWidth - 38)),
-        y: Math.max(2, Math.min(rect.top - 22, window.innerHeight - 38)),
+        x: Math.max(8, Math.min(rect.right - 20, window.innerWidth - 64)),
+        y: Math.max(24, Math.min(rect.top - 43, window.innerHeight - 72)),
         key: ++sequence.current,
       })
-      clearStamp = window.setTimeout(() => setStamp(null), 780)
+      clearStamp = window.setTimeout(() => setStamp(null), motionSpec.sealDurationMs + 1100)
     }
     document.addEventListener('click', onActivate, true)
     return () => {
@@ -31,7 +32,7 @@ export function StampFeedback() {
   return stamp && (
     <span key={stamp.key} className="culture-button-imprint" aria-hidden="true"
       style={{ left: stamp.x, top: stamp.y }}>
-      <ChineseSeal id="visit" />
+      <SealPress id="visit" animate />
     </span>
   )
 }

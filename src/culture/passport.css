@@ -26,8 +26,8 @@
   background: var(--passport-red);
 }
 :root {
-  --passport-paper: #fbf7ec;
-  --passport-wash: #f3ecdc;
+  --passport-paper: #fbf5e6;
+  --passport-wash: #f1e6d0;
   --passport-ink: #372e26;
   --passport-faded: #716454;
   --passport-rule: #dcd0b8;
@@ -55,17 +55,30 @@ html:has(.passport-dialog[open]) { overflow: hidden; }
   overflow-y: auto;
   overscroll-behavior: contain;
   border: 1px solid var(--passport-rule);
-  border-radius: 18px;
+  border-radius: 5px 12px 12px 5px;
   color: var(--passport-ink);
   background: var(--passport-paper);
   box-shadow: 0 24px 90px #131b1855;
 }
 .passport-dialog::backdrop { background: rgb(22 29 25 / 55%); }
 .passport-sheet {
+  position: relative;
   padding: clamp(20px, 5vw, 38px);
-  background:
-    radial-gradient(ellipse at 100% 0, color-mix(in srgb, var(--passport-gold) 8%, transparent), transparent 56%),
-    var(--passport-paper);
+  padding-inline-start: clamp(29px, 6vw, 49px);
+  background-color: var(--passport-paper);
+  background-image: linear-gradient(90deg, rgb(108 64 29 / 18%), transparent 4%, transparent 96%, rgb(115 78 39 / 8%)),
+    url('/assets/cultural/textures/xuan-paper.webp');
+  background-size: 100% 100%, 270px;
+  background-blend-mode: multiply;
+}
+.passport-sheet::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 7px;
+  width: 4px;
+  border-inline: 1px solid var(--passport-rule);
+  opacity: .85;
+  pointer-events: none;
 }
 .passport-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .passport-heading h2 {
@@ -110,36 +123,46 @@ html:has(.passport-dialog[open]) { overflow: hidden; }
   border: 1px dashed var(--passport-rule);
   border-radius: 5px;
 }
-.passport-stamp > svg,
+.passport-stamp > .chinese-seal,
 .passport-locked-mark { flex: 0 0 54px; width: 54px; height: 54px; color: color-mix(in srgb, var(--passport-faded) 48%, var(--passport-paper)); }
+.passport-stamp > .chinese-seal { filter: grayscale(1); opacity: .28; transform: rotate(-3deg); }
 .passport-stamp b { display: block; color: var(--passport-ink); font-size: 13px; line-height: 1.45; }
 .passport-stamp small { display: block; margin-top: 4px; color: var(--passport-faded); font-size: 11px; line-height: 1.55; }
 .passport-stamp small svg { display: inline; margin-inline-end: 3px; vertical-align: -2px; }
-.passport-stamp.found { border-style: solid; background: var(--passport-wash); }
-.passport-stamp.found > svg, .passport-stamp.found small { color: var(--passport-red); }
+.passport-stamp.found { border-style: solid; background: color-mix(in srgb, var(--passport-wash) 50%, transparent); }
+.passport-stamp.found > .chinese-seal { filter: none; opacity: 1; }
+.passport-stamp.found small { color: var(--passport-red); }
 .passport-locked-mark { display: grid; place-items: center; }
 .passport-keepsake { background: color-mix(in srgb, var(--passport-gold) 5%, var(--passport-paper)); }
 .passport-keepsake-award {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
   margin-bottom: 12px;
-  padding: 12px;
+  min-height: 150px;
+  padding: 15px;
+  overflow: clip;
   border: 3px double color-mix(in srgb, var(--passport-gold) 65%, var(--passport-paper));
   border-radius: 5px;
-  background: var(--passport-wash);
+  background: color-mix(in srgb, var(--passport-wash) 60%, transparent);
 }
-.passport-keepsake-award > svg { flex: 0 0 72px; width: 72px; height: 72px; color: var(--passport-red); transform: rotate(-4deg); }
+.passport-award-press { --seal-size: clamp(59px, 13vw, 82px); }
+.passport-keepsake-award.celebrating .passport-award-press { margin-top: 30px; }
+:root[data-theme='dark'] .passport-stamp.found > .chinese-seal,
+:root[data-theme='dark'] .passport-award-press::before {
+  border-radius: 3% 7% 4% 5%;
+  background: #f4e7cd url('/assets/cultural/textures/xuan-paper.webp') center / 160px;
+}
+:root[data-theme='dark'] .passport-award-press::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: rotate(-5deg);
+}
 .passport-keepsake-award small { color: var(--passport-faded); font-size: 12px; }
 .passport-keepsake-award h3 { margin: 3px 0 0; font: 600 21px/1.4 'Songti SC', 'SimSun', Georgia, serif; }
-.passport-keepsake-award.celebrating > svg { animation: passport-imprint .85s cubic-bezier(.24,.76,.25,1) both; }
-@keyframes passport-imprint {
-  0% { opacity: 0; transform: translateY(-9px) rotate(-13deg) scale(1.4); }
-  54% { opacity: 1; transform: translateY(1px) rotate(-4deg) scale(.93); }
-  73% { transform: rotate(-4deg) scale(1.06); }
-  100% { transform: rotate(-4deg); }
-}
 .passport-announcement {
   position: fixed;
   z-index: 105;
@@ -162,7 +185,17 @@ html:has(.passport-dialog[open]) { overflow: hidden; }
   box-shadow: 0 6px 26px #201c1624;
   font-size: 12px;
 }
-.passport-toast > svg { flex: 0 0 32px; width: 32px; height: 32px; color: var(--passport-red); }
+.passport-toast-press { --seal-size: 38px; }
+.exhibit-seal-receipt {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: 100%;
+  color: var(--passport-faded);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.exhibit-seal-receipt > .chinese-seal { flex: 0 0 26px; width: 26px; height: 26px; transform: rotate(-5deg); }
 .passport-toast > small { padding-inline-start: 7px; border-inline-start: 1px solid var(--passport-rule); color: var(--passport-faded); }
 @media (max-width: 1080px) {
   .passport-trigger { width: 38px; padding: 0; }
@@ -172,8 +205,6 @@ html:has(.passport-dialog[open]) { overflow: hidden; }
   .passport-dialog { max-height: 88dvh; }
   .passport-grid { grid-template-columns: 1fr; }
   .passport-stamp { min-height: 65px; padding: 7px 11px; }
-  .passport-stamp > svg, .passport-locked-mark { flex-basis: 42px; width: 42px; height: 42px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .passport-keepsake-award.celebrating > svg { animation: none; }
+  .passport-stamp > .chinese-seal, .passport-locked-mark { flex-basis: 42px; width: 42px; height: 42px; }
+  .passport-keepsake-award { min-height: 122px; }
 }

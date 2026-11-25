@@ -1,0 +1,81 @@
+.golden-route {
+  color: var(--ink);
+  margin: -10px 0 clamp(30px, 4vw, 52px);
+  padding: clamp(17px, 2.2vw, 28px) clamp(14px, 3.5vw, 48px) 0;
+  border-block: 1px solid color-mix(in srgb, var(--culture-gold) 65%, var(--line));
+  background-color: var(--exhibit-paper);
+  background-image: var(--exhibit-texture);
+  background-size: 340px auto;
+  background-blend-mode: multiply;
+  scroll-margin-top: 88px;
+}
+.golden-route figcaption { display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: baseline; justify-content: space-between; }
+.golden-route h3 { margin: 0; color: var(--catalogue-ink); font: 600 clamp(22px, 2.1vw, 31px)/1.3 'Songti SC','SimSun',Georgia,serif; }
+.golden-route figcaption small { color: var(--catalogue-muted); font-size: 12px; }
+.golden-route-field { position: relative; margin: 18px 0 12px; }
+.golden-thread { position: absolute; inset: 0; width: 100%; height: 89%; fill: none; color: var(--catalogue-gold); }
+.golden-thread path { vector-effect: non-scaling-stroke; }
+.golden-thread-track { stroke: currentColor; opacity: .22; stroke-width: 1; }
+.golden-thread-draw { stroke: currentColor; stroke-width: 1.65; stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset var(--route-duration) ease-in-out; }
+.golden-thread-hit { stroke: transparent; stroke-width: 18; pointer-events: stroke; }
+.golden-route[data-drawn='true'] .golden-thread-draw { stroke-dashoffset: 0; }
+.golden-thread:has(.golden-thread-hit:hover) .golden-thread-draw { stroke: var(--cinnabar); stroke-width: 2; }
+.golden-stops { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); align-items: start; pointer-events: none; }
+.golden-stop {
+  justify-self: center; display: grid; justify-items: center; gap: 3px; width: min(100%, 208px);
+  padding: 3px; border: 0; color: var(--catalogue-ink); background: transparent; cursor: pointer; pointer-events: auto;
+}
+.golden-stop-sample { display: grid; place-items: center; width: min(100%, 167px); aspect-ratio: 1.8; margin-bottom: 8px; }
+.golden-stop-sample img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .24s ease; }
+.golden-stop:not(.stop-lotus) .golden-stop-sample {
+  padding: 3px; border: 1px solid color-mix(in srgb,var(--catalogue-gold) 62%, transparent);
+  border-radius: 48% / 50%; background: var(--exhibit-paper);
+  box-shadow: 0 3px 5px rgb(63 49 28 / 11%);
+}
+.golden-stop:not(.stop-lotus) img { border-radius: inherit; }
+.stop-lotus img { object-fit: contain; filter: drop-shadow(0 4px 3px rgb(53 39 23 / 21%)); }
+.golden-stop strong { font: 600 clamp(15px, 1.5vw, 21px)/1.4 'Songti SC','SimSun',Georgia,serif; }
+.golden-stop-action { color: var(--catalogue-muted); font-size: 12px; line-height: 1.4; }
+.golden-stop-action i { font-style: normal; color: var(--catalogue-gold); }
+.golden-stop:is(:hover,:focus-visible) img { transform: translateY(-2px); }
+.golden-stop:is(:hover,:focus-visible) .golden-stop-action { color: var(--deep-carmine); }
+.golden-stop[data-collected='true'] .golden-stop-action i { color: color-mix(in srgb, var(--jade-green) 55%, var(--catalogue-ink)); }
+.golden-stop:focus-visible, .craft-viewer button:focus-visible { outline: 2px solid var(--catalogue-gold); outline-offset: 2px; }
+.golden-route-note {
+  min-height: 45px; margin: 0; padding: 10px 0 12px; border-top: 1px solid color-mix(in srgb, var(--catalogue-gold) 27%, transparent);
+  font-size: 13px; line-height: 1.65; color: var(--catalogue-muted);
+}
+.golden-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+html:has(.craft-viewer[open]) { overflow: hidden; }
+.craft-viewer {
+  width: min(600px, calc(100% - 28px)); max-height: min(88dvh, 770px); padding: 0; margin: auto; overflow-y: auto;
+  border: 1px solid var(--catalogue-gold); border-radius: 6px; color: var(--catalogue-ink); background: var(--exhibit-paper);
+  box-shadow: 0 15px 90px #101f2180;
+}
+.craft-viewer::backdrop { background: rgb(13 30 33 / 68%); }
+.craft-viewer article { padding: clamp(16px, 4vw, 32px); background-image: var(--exhibit-texture); background-size: 340px auto; background-color: var(--exhibit-paper); background-blend-mode: multiply; }
+.craft-viewer header { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--catalogue-muted); font-size: 12px; }
+.craft-viewer button {
+  display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%;
+  background: var(--exhibit-paper); color: var(--catalogue-ink); cursor: pointer;
+}
+.craft-specimen { display: grid; place-items: center; margin-block: 8px 20px; }
+.craft-specimen img { display: block; max-width: 93%; max-height: min(51dvh, 440px); width: auto; height: auto; object-fit: contain; }
+.specimen-knot img { height: min(51dvh, 440px); }
+.craft-viewer h2 { margin: 0 0 8px; font: 600 clamp(24px, 4vw, 36px)/1.3 'Songti SC','SimSun',Georgia,serif; }
+.craft-viewer p { margin: 0; font-size: 14px; line-height: 1.8; }
+@media (max-width: 600px) {
+  .golden-route { padding-inline: 11px; }
+  .golden-route figcaption { align-items: start; }
+  .golden-route figcaption small { max-width: 48%; text-align: end; font-size: 10px; }
+  .golden-route-field { margin-block: 13px; }
+  .golden-stop { padding-inline: 4px; }
+  .golden-stop-sample { width: 96%; margin-bottom: 5px; }
+  .golden-stop-action { font-size: 11px; }
+  .golden-route-note { min-height: 60px; font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .golden-thread-draw { stroke-dashoffset: 0; transition: none; }
+  .golden-stop:is(:hover,:focus-visible) img { transform: none; }
+}

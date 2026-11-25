@@ -74,7 +74,7 @@ export function ProductShowcase() {
           <div className="showcase-track" style={{ transform: `translateX(-${active * 100}%)` }}>
             {featureSlides.map((item) => (
               <figure className="showcase-image-frame" key={item.id}>
-                <img src={item.image} alt={item.alt} />
+              <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
               </figure>
             ))}
           </div>

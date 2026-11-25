@@ -32,8 +32,10 @@ import { SectionHeading } from '../components/SectionHeading'
 import { useLanguage } from '../context/LanguageContext'
 import { innovationItems, roadmapStages } from '../data/content'
 import { downloadTargets, mobileTargets } from '../data/downloads'
-import { ChineseKnot, ChineseLantern } from '../culture/Ornaments'
-import { MapleLeaves } from '../culture/MapleLeaves'
+import { ChineseKnot } from '../culture/ChineseKnot'
+import { ChineseLantern } from '../culture/Lantern'
+import { MapleParticleSystem } from '../culture/MapleParticleSystem'
+import { ChineseSeal } from '../culture/ChineseSeal'
 import { CulturalTrail } from '../culture/CulturalTrail'
 
 /**
@@ -76,9 +78,12 @@ export function HomePage() {
         <div className="hero-orbit orbit-one" />
         <div className="hero-orbit orbit-two" />
         <div className="container hero-grid">
-          <MapleLeaves />
+          <MapleParticleSystem />
           <div className="hero-copy">
-            <span className="competition-pill hero-reveal reveal-1"><Sparkles size={15} /> {t('competition')}</span>
+            <div className="hero-inscription hero-reveal reveal-1">
+              <span className="competition-pill"><Sparkles size={15} /> {t('competition')}</span>
+              <ChineseSeal id="visit" className="hero-title-seal" />
+            </div>
             <h1 className="hero-reveal reveal-2">
               <span className="hero-story-accent">{t('heroLineOne')}</span>{t('heroLinePunctuation')}
               <span className="hero-story-ending">{t('heroLineTwo')}</span>

@@ -1,0 +1,53 @@
+.suspension-lantern {
+  --suspension-length: clamp(22px, 2.6vw, 34px);
+  display: block;
+  position: relative;
+  aspect-ratio: 406 / 759;
+  pointer-events: none;
+  user-select: none;
+}
+.suspension-lantern__rig {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50.25% calc(0px - var(--suspension-length));
+}
+.suspension-lantern__cord {
+  position: absolute;
+  left: 50.25%;
+  top: calc(0px - var(--suspension-length));
+  width: max(3px, 4.6%);
+  height: calc(var(--suspension-length) + 4.8%);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.suspension-lantern__rig::before {
+  content: '';
+  position: absolute;
+  inset: 14% 0 36%;
+  background: radial-gradient(ellipse, rgb(232 145 49 / 25%), transparent 72%);
+  pointer-events: none;
+}
+.suspension-lantern__body, .suspension-lantern__tassel {
+  position: absolute;
+  display: block;
+  height: auto;
+  max-width: none;
+}
+.suspension-lantern__body { top: 0; left: 0; width: 100%; }
+/* Both WebP layers share the original photograph's coordinate system. */
+.suspension-lantern__tassel {
+  left: 42.365%;
+  top: 62.582%;
+  width: 15.764%;
+  transform-origin: 50% .35%;
+  pointer-events: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .suspension-lantern__body { pointer-events: auto; }
+}
+@media (max-width: 820px) {
+  .suspension-lantern { --suspension-length: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .suspension-lantern__rig, .suspension-lantern__tassel { transform: none !important; }
+}

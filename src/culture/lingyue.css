@@ -75,9 +75,9 @@
   pointer-events: none;
   width: clamp(40px, 6vw, 70px);
   animation: lingyue-lotus-light 1.3s ease-out both;
-  filter: drop-shadow(0 0 6px #fff1a3) drop-shadow(0 0 12px #eabc54);
+  filter: drop-shadow(0 1px 3px rgb(255 226 154 / 70%));
 }
-.lingyue-lotus { display: block; width: 100%; }
+.lingyue-bloom .lingyue-lotus { display: block; width: 100%; height: auto; border-radius: 0; }
 @keyframes lingyue-lotus-light {
   0% { opacity: .25; transform: translateY(0) scale(.48); }
   40% { opacity: 1; transform: translateY(-16%) scale(1); }

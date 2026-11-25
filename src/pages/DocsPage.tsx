@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 import type { ReactNode } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { DiscoveryMark } from '../culture/DiscoveryMark'
 
 /**
  * @typedef {object} TocItem
@@ -47,7 +48,7 @@ const pages: DocPage[] = [
       { id: 'loop', label: '核心服务闭环' }, { id: 'data', label: '已接入数据范围' }, { id: 'limits', label: '能力边界' },
     ],
     content: <>
-      <h1>智游华章</h1>
+      <div className="docs-inscription"><h1>智游华章</h1><DiscoveryMark id="lotus" /></div>
       <p className="lead">在灵山胜境或拈花湾，游客可以问起眼前一处景点的来历，听数字人讲解，再沿地图寻访下一站。运营人员可以根据这些提问，补充游客还想听的故事。</p>
       <h2 id="what">智游华章是什么</h2>
       <p>智游华章是第十四届全国大学生数字媒体科技作品及创意竞赛参赛作品。项目把景区的文字资料转为可以追问的数字人讲解，再用手绘地图将一个个地点的故事连成游线。</p>

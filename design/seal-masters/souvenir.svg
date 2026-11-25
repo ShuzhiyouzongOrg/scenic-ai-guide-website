@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="black"/>
+  <path fill="white" stroke="white" stroke-width="1.5" stroke-linejoin="round" d="M9 9 L25 8 L36 9 L77 8 L89 10 L91 17 L90 87 L85 91 L59 91 L47 90 L17 92 L9 88 L8 66Z"/>
+  <g color="black">
+    <g transform="translate(5 4) scale(.90)">
+      <g transform="translate(50 5) scale(.48)" fill="none" stroke="black" stroke-width="5.8" stroke-linecap="square" stroke-linejoin="round">
+        <path d="M21 12 Q19 22 14 27 M21 19 H45 M31 20 V30 M12 33 H49 M31 34 Q28 46 13 52 M31 38 L45 49 M57 19 H84 V46 H57 Z M23 56 H80 V89 H23 Z M26 72 H77"/>
+      </g>
+      <g transform="translate(50 52) scale(.48)" fill="none" stroke="black" stroke-width="5.8" stroke-linecap="square" stroke-linejoin="round">
+        <path d="M12 17 L23 24 M10 40 L21 46 M12 83 L24 62 M41 12 L46 23 M28 33 H61 M37 34 Q37 66 26 84 M38 46 H52 L50 75 Q50 83 43 83 H38 M68 13 Q66 26 58 34 M67 25 H88 M61 43 H85 L75 55 M59 62 H89 M75 55 V79 Q75 85 66 84"/>
+      </g>
+      <g transform="translate(4 5) scale(.48)" fill="none" stroke="black" stroke-width="5.8" stroke-linecap="square" stroke-linejoin="round">
+        <path d="M36 12 Q30 29 12 39 M25 31 V54 M52 12 V41 Q52 50 60 50 H77 Q84 50 85 39 M55 35 Q69 28 80 18 M13 66 H88 M51 55 V91"/>
+      </g>
+      <g transform="translate(4 52) scale(.48)" fill="none" stroke="black" stroke-width="5.8" stroke-linecap="square" stroke-linejoin="round">
+        <path d="M48 10 L53 17 M22 23 H79 M31 26 L37 37 M69 26 L63 37 M14 40 H86 M27 48 H75 V69 H27 Z M29 59 H74 M17 79 H83 M50 70 V92"/>
+      </g>
+    </g>
+  </g>
+</svg>

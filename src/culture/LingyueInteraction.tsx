@@ -1,6 +1,7 @@
 import { useEffect, useId, useRef, useState, type ReactNode } from 'react'
 import { Flower2, Images } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
+import { LotusOrnament } from './LotusOrnament'
 import './lingyue.css'
 
 const copy = {
@@ -52,18 +53,6 @@ const hotspots: { action: Action; x: number; y: number; detail?: boolean }[] = [
   { action: 'badge', x: 83.9, y: 75.1, detail: true },
 ]
 const messages = { hair: 'lotus', badge: 'intro', palm: 'tip' } as const
-
-function LotusLight() {
-  return (
-    <svg className="lingyue-lotus" viewBox="0 0 66 58" aria-hidden="true">
-      <g fill="#fff4c0" stroke="#a96714" strokeWidth="1.4" strokeLinejoin="round">
-        <path d="M33 46C15 33 20 19 33 7c13 13 18 26 0 39Z" />
-        <path d="M32 45C15 46 7 35 5 20c13 1 24 8 27 25Zm2 0c17 1 25-10 27-25-13 1-24 8-27 25Z" />
-        <path d="M9 41c11 0 16 3 24 8 8-5 13-8 24-8-10 12-38 13-48 0Z" />
-      </g>
-    </svg>
-  )
-}
 
 function CharacterSheet() {
   const { locale } = useLanguage()
@@ -137,7 +126,7 @@ function CharacterSheet() {
           <button key={index} type="button" className="lingyue-spot" title={words[spot.action]}
             aria-label={words[spot.action]} tabIndex={spot.detail ? -1 : 0} style={{ left: `${spot.x}%`, top: `${spot.y}%` }}
             onClick={(event) => activateHotspot(index, event.detail > 0 ? event.timeStamp : undefined)}>
-            {light.index === index && <span key={light.count} className="lingyue-bloom"><LotusLight /></span>}
+            {light.index === index && <span key={light.count} className="lingyue-bloom"><LotusOrnament className="lingyue-lotus" /></span>}
           </button>
         ))}
       </div>
