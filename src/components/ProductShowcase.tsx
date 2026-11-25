@@ -4,8 +4,9 @@
  * @description
  * 以标签页、横向轮播和摘要信息展示产品功能，并支持自动轮播、手动切换和悬停暂停。
  */
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { featureSlides } from '../data/content'
+import { LingyueInteraction } from '../culture/LingyueInteraction'
 
 /**
  * @description 渲染产品功能截图轮播，在允许动态效果时自动切换，并为鼠标和键盘交互提供暂停能力。
@@ -15,30 +16,41 @@ import { featureSlides } from '../data/content'
  */
 export function ProductShowcase() {
   const [active, setActive] = useState(0)
-  const [paused, setPaused] = useState(false)
-  const [cycle, setCycle] = useState(0)
-  const reducedMotion = useMemo(
-    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-    [],
-  )
+  const [hovered, setHovered] = useState(false)
+  const [focused, setFocused] = useState(false)
+  const [interactionOpen, setInteractionOpen] = useState(false)
 
   useEffect(() => {
-    if (paused || reducedMotion || document.hidden) return undefined
-    const timer = window.setInterval(() => {
-      setActive((value) => (value + 1) % featureSlides.length)
-    }, 5600)
-    return () => window.clearInterval(timer)
-  }, [paused, reducedMotion, cycle])
+    if (hovered || focused || interactionOpen) return
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)')
+    let timer: number | undefined
+    function schedule() {
+      window.clearInterval(timer)
+      if (!preference.matches && !document.hidden) {
+        timer = window.setInterval(() => setActive((index) => (index + 1) % featureSlides.length), 5600)
+      }
+    }
+    schedule()
+    preference.addEventListener('change', schedule)
+    document.addEventListener('visibilitychange', schedule)
+    return () => {
+      window.clearInterval(timer)
+      preference.removeEventListener('change', schedule)
+      document.removeEventListener('visibilitychange', schedule)
+    }
+  }, [hovered, focused, interactionOpen])
 
   const slide = featureSlides[active]
 
   return (
     <div
       className="product-showcase"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setFocused(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false)
+      }}
     >
       <div className="showcase-tabs" role="tablist" aria-label="产品功能截图">
         {featureSlides.map((item, index) => (
@@ -50,22 +62,24 @@ export function ProductShowcase() {
             className={active === index ? 'active' : ''}
             onClick={() => {
               setActive(index)
-              setCycle((value) => value + 1)
+              setInteractionOpen(false)
             }}
           >
             {item.title}
           </button>
         ))}
       </div>
-      <div className="showcase-stage">
-        <div className="showcase-track" style={{ transform: `translateX(-${active * 100}%)` }}>
-          {featureSlides.map((item) => (
-            <figure className="showcase-image-frame" key={item.id}>
-              <img src={item.image} alt={item.alt} />
-            </figure>
-          ))}
+      <LingyueInteraction available={slide.id === 'digital-human'} open={interactionOpen} setOpen={setInteractionOpen}>
+        <div className="showcase-stage" hidden={interactionOpen}>
+          <div className="showcase-track" style={{ transform: `translateX(-${active * 100}%)` }}>
+            {featureSlides.map((item) => (
+              <figure className="showcase-image-frame" key={item.id}>
+                <img src={item.image} alt={item.alt} />
+              </figure>
+            ))}
+          </div>
         </div>
-      </div>
+      </LingyueInteraction>
       <div className="showcase-summary" aria-live="polite">
         <span>{slide.eyebrow}</span>
         <b>{slide.description}</b>

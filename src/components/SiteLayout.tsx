@@ -10,6 +10,9 @@ import { NavLink, Outlet, useLocation } from 'react-router-dom'
 import { type Locale, useLanguage } from '../context/LanguageContext'
 import { Brand } from './Brand'
 import { MagneticButton } from './MagneticButton'
+import { PassportButton } from '../culture/Passport'
+import { StampFeedback } from '../culture/StampFeedback'
+import { WindowReveal } from '../culture/WindowReveal'
 
 const GITHUB_URL = 'https://github.com/babybitter/scenic-ai-guide'
 
@@ -84,7 +87,9 @@ const layoutCopy = {
 export function SiteLayout() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [languageOpen, setLanguageOpen] = useState(false)
-  const [dark, setDark] = useState(() => localStorage.getItem('theme') === 'dark')
+  const [dark, setDark] = useState(() => {
+    try { return localStorage.getItem('theme') === 'dark' } catch { return false }
+  })
   const [scrolled, setScrolled] = useState(false)
   const [headerHidden, setHeaderHidden] = useState(false)
   const lastScrollY = useRef(0)
@@ -103,7 +108,11 @@ export function SiteLayout() {
 
   useEffect(() => {
     document.documentElement.dataset.theme = dark ? 'dark' : 'light'
-    localStorage.setItem('theme', dark ? 'dark' : 'light')
+    try {
+      localStorage.setItem('theme', dark ? 'dark' : 'light')
+    } catch {
+      // The theme and the seal collection also work for this session without storage.
+    }
   }, [dark])
 
   useEffect(() => {
@@ -273,6 +282,7 @@ export function SiteLayout() {
             </div>
           </nav>
           <div className="header-actions">
+            <PassportButton />
             <div className="language-control">
               <button
                 className="language-button"
@@ -328,6 +338,8 @@ export function SiteLayout() {
           </div>
         </div>
       </header>
+      <WindowReveal />
+      <StampFeedback />
       <main>
         <Outlet />
       </main>

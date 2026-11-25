@@ -9,13 +9,15 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { App } from './App'
 import { LanguageProvider } from './context/LanguageContext'
+import { PassportProvider } from './culture/Passport'
 import './styles.css'
+import './culture/site-culture.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <LanguageProvider>
       <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}>
-        <App />
+        <PassportProvider><App /></PassportProvider>
       </BrowserRouter>
     </LanguageProvider>
   </StrictMode>,

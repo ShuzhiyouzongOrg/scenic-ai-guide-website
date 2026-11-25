@@ -32,6 +32,9 @@ import { SectionHeading } from '../components/SectionHeading'
 import { useLanguage } from '../context/LanguageContext'
 import { innovationItems, roadmapStages } from '../data/content'
 import { downloadTargets, mobileTargets } from '../data/downloads'
+import { ChineseKnot, ChineseLantern } from '../culture/Ornaments'
+import { MapleLeaves } from '../culture/MapleLeaves'
+import { CulturalTrail } from '../culture/CulturalTrail'
 
 /**
  * @description 定义主页服务闭环中依次展示的业务价值步骤。
@@ -73,6 +76,7 @@ export function HomePage() {
         <div className="hero-orbit orbit-one" />
         <div className="hero-orbit orbit-two" />
         <div className="container hero-grid">
+          <MapleLeaves />
           <div className="hero-copy">
             <span className="competition-pill hero-reveal reveal-1"><Sparkles size={15} /> {t('competition')}</span>
             <h1 className="hero-reveal reveal-2">
@@ -84,7 +88,7 @@ export function HomePage() {
               <a className="button primary" href="https://www.shuzhiyouzong.cn" target="_blank" rel="noreferrer">
                 {t('tryOnline')} <ArrowRight size={18} />
               </a>
-              <Link className="button secondary" to="/download">
+              <Link className="button secondary stamp-action" to="/download">
                 {t('getClient')}
               </Link>
               <a className="button secondary github-button" href="https://github.com/babybitter/scenic-ai-guide" target="_blank" rel="noreferrer">
@@ -98,6 +102,7 @@ export function HomePage() {
             </div>
           </div>
           <div className="hero-visual hero-reveal reveal-visual">
+            <ChineseLantern className="hero-palace-lantern" />
             <div className="hero-logo-card">
               <img src={asset('brand/brand-mark.png')} alt="" />
               <div>
@@ -123,6 +128,7 @@ export function HomePage() {
             title="一处风景，从你的提问讲起"
             body="在灵山胜境与拈花湾，向数字人问一处景名的来历，再循着讲解去现场看看。你的新问题，也能成为景区补写故事的线索。"
           />
+          <CulturalTrail />
           <div className="value-flow">
             {valueSteps.map((step, index) => (
               <article key={step.title}>
@@ -249,13 +255,14 @@ export function HomePage() {
       </section>
 
       <section className="final-cta section-pad">
+        <ChineseKnot className="journey-knot" />
         <div className="container">
           <span className="eyebrow">EXPLORE JIANGNAN</span>
           <h2>走进江南，<em>听一段地方故事</em></h2>
           <p>打开地图，选中灵山胜境或拈花湾的一处景点，让数字人讲给你听。</p>
           <div className="hero-actions">
             <a className="button primary" href="https://www.shuzhiyouzong.cn" target="_blank" rel="noreferrer">进入智游华章 <ArrowRight size={18} /></a>
-            <Link className="button secondary" to="/docs">阅读项目文档</Link>
+            <Link className="button secondary stamp-action" to="/docs">阅读项目文档</Link>
           </div>
         </div>
       </section>

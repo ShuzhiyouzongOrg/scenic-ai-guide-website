@@ -7,6 +7,7 @@
  */
 import { Activity, AudioLines, BookOpenCheck, Layers3, MapPinned, MessagesSquare, Network } from 'lucide-react'
 import { SectionHeading } from '../components/SectionHeading'
+import { CloudMark } from '../culture/CloudMark'
 
 /**
  * @description 定义创新点页面展示的工程实践、说明文案及对应图标。
@@ -60,7 +61,12 @@ export function InnovationPage() {
   return (
     <div className="subpage innovation-page">
       <section className="page-hero section-pad">
-        <div className="container narrow"><span className="competition-pill">DIGITAL STORYTELLING</span><h1>一段景区故事，<br /><em>怎样讲到游客耳边？</em></h1><p>智游华章从景区资料中寻找答案，让数字人开口讲述，再把讲解放回地图上的景点。山间信号变弱时，游客仍能读到文字、找到路线。</p></div>
+        <div className="container narrow">
+          <span className="competition-pill">DIGITAL STORYTELLING</span>
+          <h1>一段景区故事，<br /><em>怎样讲到游客耳边？</em></h1>
+          <p>智游华章从景区资料中寻找答案，让数字人开口讲述，再把讲解放回地图上的景点。山间信号变弱时，游客仍能读到文字、找到路线。</p>
+          <CloudMark />
+        </div>
       </section>
       <section className="innovation-detail section-pad">
         <div className="container">
