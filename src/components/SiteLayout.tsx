@@ -1,5 +1,5 @@
 /**
- * @fileoverview 数智游踪介绍站的全局页面布局组件。
+ * @fileoverview 智游华章介绍站的全局页面布局组件。
  *
  * @description
  * 统一管理响应式页头、导航、语言与主题切换、滚动显隐行为、移动端菜单、页面出口及非文档页页脚。
@@ -26,13 +26,12 @@ const layoutCopy = {
     openMenu: '打开菜单',
     closeMenu: '关闭菜单',
     appearance: '外观',
-    footerDescription: '让景区知识被看见，让每一次游览都被理解。',
+    footerDescription: '听一方水土，读一方人文。',
     footerDocs: '项目文档',
     footerRoadmap: '开发历程',
     footerInnovation: '项目创新点',
     footerFeedback: '建议反馈',
     onlineExperience: '在线体验',
-    copyright: '© 2026 数智游踪 · 第十五届中国软件杯 A5 赛题作品',
   },
   'zh-TW': {
     navigation: '主導覽',
@@ -46,13 +45,12 @@ const layoutCopy = {
     openMenu: '開啟選單',
     closeMenu: '關閉選單',
     appearance: '外觀',
-    footerDescription: '讓景區知識被看見，讓每一次遊覽都被理解。',
+    footerDescription: '聽一方水土，讀一方人文。',
     footerDocs: '專案文件',
     footerRoadmap: '開發歷程',
     footerInnovation: '專案創新點',
     footerFeedback: '建議回饋',
     onlineExperience: '線上體驗',
-    copyright: '© 2026 數智遊蹤 · 第十五屆中國軟件杯 A5 賽題作品',
   },
   en: {
     navigation: 'Main navigation',
@@ -66,13 +64,12 @@ const layoutCopy = {
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     appearance: 'Appearance',
-    footerDescription: 'Make scenic knowledge visible and every journey understood.',
+    footerDescription: 'Listen to the stories that give each place its character.',
     footerDocs: 'Documentation',
     footerRoadmap: 'Development roadmap',
     footerInnovation: 'Project innovation',
     footerFeedback: 'Feedback',
     onlineExperience: 'Try online',
-    copyright: '© 2026 Shuzhi Youzong · China Software Cup A5 Project',
   },
 } as const
 
@@ -95,7 +92,7 @@ export function SiteLayout() {
   const headerRef = useRef<HTMLElement>(null)
   const location = useLocation()
   const isDocs = location.pathname.startsWith('/docs')
-  const { locale, setLocale } = useLanguage()
+  const { locale, setLocale, t } = useLanguage()
   const copy = layoutCopy[locale]
   const navItems = [
     { to: '/', label: copy.nav.home, end: true },
@@ -349,7 +346,7 @@ export function SiteLayout() {
           </div>
         </div>
         <div className="footer-bottom">
-          <span>{copy.copyright}</span>
+          <span>© 2026 {t('brandName')} · {t('competition')}</span>
           <a href="https://beian.miit.gov.cn" target="_blank" rel="noreferrer">闽ICP备2025107095号-3</a>
         </div>
       </footer>}

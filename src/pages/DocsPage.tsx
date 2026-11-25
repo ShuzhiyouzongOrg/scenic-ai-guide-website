@@ -1,5 +1,5 @@
 /**
- * @fileoverview 数智游踪项目文档页面及文档导航配置。
+ * @fileoverview 智游华章项目文档页面及文档导航配置。
  *
  * @description
  * 集中定义项目介绍、安装部署、使用指南、技术选型与致谢内容，
@@ -41,17 +41,17 @@ interface DocPage {
  */
 const pages: DocPage[] = [
   {
-    slug: '', title: '项目介绍', kicker: '理解产品与赛题',
+    slug: '', title: '项目介绍', kicker: '景区故事与作品来历',
     toc: [
-      { id: 'what', label: '数智游踪是什么' }, { id: 'roles', label: '适用角色与场景' },
+      { id: 'what', label: '智游华章是什么' }, { id: 'roles', label: '适用角色与场景' },
       { id: 'loop', label: '核心服务闭环' }, { id: 'data', label: '已接入数据范围' }, { id: 'limits', label: '能力边界' },
     ],
     content: <>
-      <h1>数智游踪</h1>
-      <p className="lead">面向景区游客与运营管理者的 AI 数字人智慧导览系统，让一次游客提问真正进入景区服务、内容维护与运营分析闭环。</p>
-      <h2 id="what">数智游踪是什么</h2>
-      <p>数智游踪是第十五届“中国软件杯”A5「景区导览服务 AI 数字人」赛题作品。系统将景区知识问答、语音交互、数字人讲解、地图导览、游线推荐、游客反馈和运营分析连接为一条完整业务链路。</p>
-      <div className="docs-callout"><b>产品定位</b><p>它不是“数字人套壳问答”，而是连接可信知识、沉浸讲解、地图路线与景区运营的智慧导览平台。</p></div>
+      <h1>智游华章</h1>
+      <p className="lead">在灵山胜境或拈花湾，游客可以问起眼前一处景点的来历，听数字人讲解，再沿地图寻访下一站。运营人员可以根据这些提问，补充游客还想听的故事。</p>
+      <h2 id="what">智游华章是什么</h2>
+      <p>智游华章是第十四届全国大学生数字媒体科技作品及创意竞赛参赛作品。项目把景区的文字资料转为可以追问的数字人讲解，再用手绘地图将一个个地点的故事连成游线。</p>
+      <div className="docs-callout"><b>产品定位</b><p>游客可以听数字人讲故事，也可以查看回答引用的景区资料。景区人员能回看游客反馈，核实细节、修订讲解。</p></div>
       <h2 id="roles">适用角色与场景</h2>
       <h3>景区访客</h3><p>通过文字或语音询问景点历史、服务设施与游览建议；查看答案来源；由数字人播报讲解；在灵山胜境与拈花湾地图中浏览景点、官方游线和全景入口；按时长、兴趣、同行人群与体力情况获取个性化路线。</p>
       <h3>景区运营人员</h3><p>维护文档、景点与固定问答，配置数字人形象和音色，查看服务量、满意度、热门问题和景点关注，回溯低满意会话并形成知识补充草稿。</p>
@@ -95,7 +95,7 @@ const pages: DocPage[] = [
       { id: 'avatar', label: '数字人配置' }, { id: 'operations', label: '运营与质量闭环' },
     ],
     content: <>
-      <h1>使用操作指南</h1><p className="lead">建议按照“智能问答 → 地图路线 → 满意度反馈 → 管理端回溯”的顺序体验完整闭环。</p>
+      <h1>使用操作指南</h1><p className="lead">先选一个想了解的景点，听讲解、问来历，再沿地图走一段。游客可以为讲解评分，运营人员可在后台查看对应的会话。</p>
       <h2 id="visitor">AI 数字人导览</h2><ol><li>进入“AI 数字人导览”，完成浏览器音频授权。</li><li>使用文字输入，或在兼容浏览器中使用语音输入。</li><li>查看回答、质量标签、引用来源与阶段耗时。</li><li>打开景点卡片听取讲解，或按时长和兴趣生成路线。</li><li>播报可打断；数字人不可用时，正文回答仍可阅读。</li></ol>
       <h2 id="map-guide">地图与路线</h2><h3>景区地图导览</h3><p>在灵山胜境和拈花湾之间切换；联网且 Key 有效时使用腾讯地图，离线或 SDK 失败时自动使用 Leaflet 本地手绘图。可按分类筛选景点和设施，打开详情、讲解与全景入口。</p>
       <h3>官方游线与个性化路线</h3><p><b>官方游线</b>保留景区来源的节点顺序和道路折线；<b>个性化路线</b>根据时长、兴趣、同行人群、体力和拍照偏好生成并解释推荐理由。两者均为游览建议，不等同于实时 GPS 步行导航。</p>
@@ -132,7 +132,7 @@ const pages: DocPage[] = [
     content: <>
       <article className="thanks-prose">
         <h1>致谢</h1>
-        <p>一项作品的最终交付，从来不是某一个人的独行。谨以此页，记录数智游踪从构想到落地过程中收到的每一份指引、坚守、耐心与信任。</p>
+        <p>一项作品的最终交付，从来不是某一个人的独行。谨以此页，记录智游华章从构想到落地过程中收到的每一份指引、坚守、耐心与信任。</p>
 
         <h2 id="journey">一路同行</h2>
         <p>回望从备赛到最终交付的整个历程，我们跨越了一个又一个难点，也在持续验证、推翻与重建中完成了宝贵的蜕变与成长。每一次突破的背后，都有同行者的托举。</p>
@@ -144,25 +144,25 @@ const pages: DocPage[] = [
         <p>感谢团队成员<strong>张婧瑜、季祥、林骏毅</strong>在无数个深夜并肩调试、反复迭代的坚守与付出。正是彼此间的信任、坦诚与默契协作，支撑我们把一个想法打磨成完整系统，并一路走到<strong>总决赛</strong>的舞台。</p>
 
         <h2 id="organizers">赛事组织</h2>
-        <p>我们向本届大赛的<strong>主办单位——工业和信息化部、教育部、江苏省人民政府，出题企业——锐捷网络（苏州）有限公司</strong>，以及<strong>各承办单位与大赛组委会</strong>致以最诚挚的谢意。感谢赛事平台为全国青年学子搭建起连接产业需求、展现软件创新能力、碰撞技术思想的国家级专业舞台。从贴合产业前沿的赛题设置，到全流程规范有序的赛事组织，再到<strong>总决赛</strong>的周全保障，每一处环节的精心安排，都为我们的参赛实践与能力成长保驾护航。</p>
+        <p>我们向<strong>主办单位——工业和信息化部、教育部、江苏省人民政府，出题企业——锐捷网络（苏州）有限公司</strong>，以及<strong>各承办单位与大赛组委会</strong>致以最诚挚的谢意。感谢赛事平台为全国青年学子搭建起连接产业需求、展现软件创新能力、碰撞技术思想的国家级专业舞台。从贴合产业前沿的赛题设置，到全流程规范有序的赛事组织，再到<strong>总决赛</strong>的周全保障，每一处环节的精心安排，都为我们的参赛实践与能力成长保驾护航。</p>
 
         <h2 id="support">答疑支持</h2>
         <p>特别感谢<strong>组委会老师</strong>在 QQ 群答疑期间给予的细心解答。一次次及时、明确的回应，帮助我们更准确地理解参赛要求，也让团队能够把更多精力投入作品本身。在此，特别感谢<a className="thanks-mail-link" href="mailto:2219396984@qq.com" aria-label="发送邮件给王佳琳老师">王佳琳老师</a>、<a className="thanks-mail-link" href="mailto:568735108@qq.com" aria-label="发送邮件给王艳老师">王艳老师</a>与<a className="thanks-mail-link" href="mailto:3216299230@qq.com" aria-label="发送邮件给马溪若老师">马溪若老师</a>的耐心帮助。</p>
 
         <h2 id="special-thanks">特别感谢</h2>
         <h3>张畅（@Miraitowa.）</h3>
-        <p>2026 年 8 月中旬，数智游踪顺利入围中国软件杯全国总决赛，团队随即开启多端构建与真机验证工作。首批构建覆盖 Windows、Linux 与 macOS 桌面端，其中 macOS 客户端的兼容性、安装流程和现场演示效果，都需要在真实的 Mac 设备上完成测试。</p>
+        <p>2026 年 8 月中旬，智游华章顺利入围全国总决赛，团队随即开启多端构建与真机验证工作。首批构建覆盖 Windows、Linux 与 macOS 桌面端，其中 macOS 客户端的兼容性、安装流程和现场演示效果，都需要在真实的 Mac 设备上完成测试。</p>
         <p>想到朋友张畅正好有一台 Mac，我便试着询问他，能否将电脑借给项目组测试一段时间。</p>
         <blockquote className="thanks-quote">
           <p>半个小时后，我在家楼下拿到了电脑。</p>
         </blockquote>
-        <p>这一借，便是半个月。8 月底，数智游踪顺利获得全国二等奖；在总决赛的功能演示中，macOS 端的稳定呈现为完整展示项目的多端能力提供了重要支撑。那台及时借来的电脑，以及这份毫不犹豫的信任与支持，都成为项目顺利完成多端验证过程中不可或缺的一环。在此，向张畅致以由衷的感谢。</p>
+        <p>这一借，便是半个月。8 月底，智游华章顺利获得全国二等奖。在总决赛的功能演示中，macOS 端的稳定呈现为完整展示项目的多端能力提供了重要支撑。那台及时借来的电脑，以及这份毫不犹豫的信任与支持，都成为项目顺利完成多端验证过程中不可或缺的一环。在此，向张畅致以由衷的感谢。</p>
 
         <h2 id="judges">评委专家</h2>
         <p>感谢各位<strong>评委专家</strong>在百忙之中拨冗评审，耐心聆听我们的项目汇报。严谨的专业视角与中肯的点评建议，不仅帮助我们清晰认识到项目的不足与优化空间，也让我们对软件技术的产业落地价值有了更深刻的理解，为未来的技术实践与职业发展指明了方向。</p>
 
         <h2 id="ecosystem">技术生态</h2>
-        <p>数智游踪的完成也离不开 Vue、Node.js、Leaflet、Electron 等开源社区，以及科大讯飞、腾讯位置服务与 Live2D 相关技术生态提供的能力基础。</p>
+        <p>智游华章的完成也离不开 Vue、Node.js、Leaflet、Electron 等开源社区，以及科大讯飞、腾讯位置服务与 Live2D 相关技术生态提供的能力基础。</p>
 
         <h2 id="closing">写在最后</h2>
         <h3>经历本身，就是答案。</h3>
@@ -183,7 +183,7 @@ const pathFor = (slug: string) => slug ? `/docs/${slug}` : '/docs'
 
 /**
  * @description 根据当前 URL 渲染文档正文、分组导航、页内目录和相邻页面入口。
- * @returns {JSX.Element} 完整的数智游踪文档页面。
+ * @returns {JSX.Element} 完整的智游华章文档页面。
  * @example
  * <Route path="/docs/*" element={<DocsPage />} />
  */
@@ -194,16 +194,17 @@ export function DocsPage() {
   const current = pages[index]
 
   useEffect(() => {
-    document.title = `${current.title}｜数智游踪文档`
+    const previousTitle = document.title
+    document.title = `${current.title}｜智游华章文档`
     const id = decodeURIComponent(location.hash.replace('#', ''))
     window.setTimeout(() => id ? document.getElementById(id)?.scrollIntoView() : window.scrollTo(0, 0), 0)
-    return () => { document.title = '数智游踪｜AI 数字人智慧导览' }
+    return () => { document.title = previousTitle }
   }, [current.title, location.hash])
 
   return (
     <div className="docs-page">
       <aside className="docs-sidebar">
-        <div className="docs-brand"><span>DOCUMENTATION</span><h2>数智游踪文档</h2><p>产品、部署、操作与技术决策的完整说明。</p></div>
+        <div className="docs-brand"><span>DOCUMENTATION</span><h2>智游华章文档</h2><p>产品、部署、操作与技术决策的完整说明。</p></div>
         <nav aria-label="文档导航">
           {pages.map((page) => (
             <section key={page.slug} className={current.slug === page.slug ? 'active' : ''}>

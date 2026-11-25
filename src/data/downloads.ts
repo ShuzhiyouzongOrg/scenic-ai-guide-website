@@ -1,5 +1,5 @@
 /**
- * @fileoverview 数智游踪官网的多端下载地址与发布状态配置。
+ * @fileoverview 智游华章官网的多端下载地址与发布状态配置。
  *
  * @description
  * 统一维护网页端、桌面端和移动端的公开入口、安装包版本及文件地址，
@@ -38,7 +38,7 @@ export interface DownloadTarget {
 }
 
 /**
- * @description 数智游踪现有产品 Web 应用的公开入口。
+ * @description 智游华章现有产品 Web 应用的公开入口。
  * @type {string}
  */
 export const webAppUrl = 'https://www.shuzhiyouzong.cn'
@@ -79,7 +79,7 @@ export const downloadTargets: DownloadTarget[] = [
     title: '电脑网页端',
     platform: '浏览器即开即用',
     format: 'Web',
-    description: '免安装体验数字人问答、景点讲解、地图导览与管理后台。',
+    description: '用浏览器听数字人讲景点来历，跟着地图选游线，也可进入管理后台。',
     href: webAppUrl,
     status: 'ready',
     badge: '立即体验',
@@ -125,7 +125,7 @@ export const downloadTargets: DownloadTarget[] = [
     title: 'Android App',
     platform: 'Android 8.0 及以上',
     format: 'APK',
-    description: '面向游客随身使用的移动导览客户端，覆盖问答、地图、讲解与路线体验。',
+    description: '游览途中可以用手机问景点来历、听讲解，在地图上查看接下来的路线。',
     href: androidDownloadUrl,
     status: 'ready',
     badge: `Release v${releaseVersion}`,

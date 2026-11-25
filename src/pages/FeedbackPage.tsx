@@ -1,5 +1,5 @@
 /**
- * @fileoverview 数智游踪游客反馈页面组件。
+ * @fileoverview 智游华章游客反馈页面组件。
  *
  * @description
  * 通过真实游览场景说明反馈方向，展示规划中的反馈表单结构，
@@ -28,8 +28,8 @@ export function FeedbackPage() {
       <section className="page-hero feedback-hero section-pad">
         <div className="container narrow">
           <span className="competition-pill"><MessageSquareText size={15} /> FROM THE VISITOR</span>
-          <h1>你的真实游览感受，<br /><em>决定下一次更新</em></h1>
-          <p>不要求你理解技术，也不需要写 Issue。只要告诉我们：在景区里哪一步不顺、哪段讲解不清楚、哪项服务还可以更贴心。</p>
+          <h1>走过这片山水，<br /><em>你还想听哪个故事？</em></h1>
+          <p>哪段讲解让你在景点前多留了一会儿？哪句话还没听懂，哪条路没找着？我们希望听到你在现场的感受。</p>
         </div>
       </section>
 
@@ -38,7 +38,7 @@ export function FeedbackPage() {
           <SectionHeading
             eyebrow="REAL SCENARIOS"
             title="我们更想听见这样的反馈"
-            body="以普通游客、亲子家庭、老年访客和弱网环境下的真实体验作为产品优化依据。"
+            body="和孩子一起听讲解、陪长辈看地图，或遇到山间信号中断时，你的经历可以帮助我们改进下一版。"
           />
           <div className="scenario-grid">
             {feedbackScenarios.map((item, index) => {
@@ -58,16 +58,16 @@ export function FeedbackPage() {
             <div className="privacy-note">不会索要账号密码、定位历史或任何服务密钥。</div>
           </div>
           <form onSubmit={(event) => event.preventDefault()}>
-            <label>我当时在做什么<input type="text" placeholder="例如：带家人在拈花湾跟随亲子路线" /></label>
-            <label>遇到了什么<textarea placeholder="例如：切到弱网后数字人停了，希望保留字幕和已下载讲解。" rows={5} /></label>
-            <label>你希望怎样改进<input type="text" placeholder="描述你理想中的使用方式" /></label>
+            <label>我当时在做什么<input type="text" placeholder="例如，带家人在拈花湾边走边听讲解" /></label>
+            <label>遇到了什么<textarea placeholder="例如，信号变弱后讲解中断了，孩子没能听完这段故事。" rows={5} /></label>
+            <label>你希望怎样改进<input type="text" placeholder="例如，希望能接着读完这段讲解的字幕" /></label>
             <button className="button primary" type="button" disabled>正式通道即将开放</button>
           </form>
         </div>
       </section>
 
       <section className="final-cta compact section-pad">
-        <div className="container"><h2>先体验，再告诉我们哪里还能更好</h2><p>数智游踪会把反馈转化为路线、内容、交互和无障碍体验的具体改进。</p><a className="button primary" href="https://www.shuzhiyouzong.cn" target="_blank" rel="noreferrer">进入在线体验 <ArrowRight size={18} /></a><Link className="button secondary" to="/roadmap">查看迭代计划</Link></div>
+        <div className="container"><h2>先到景区听一段讲解</h2><p>在智游华章里选一个感兴趣的景点，听听它的来历。你也可以在路线图中查看团队接下来要改进什么。</p><a className="button primary" href="https://www.shuzhiyouzong.cn" target="_blank" rel="noreferrer">进入在线体验 <ArrowRight size={18} /></a><Link className="button secondary" to="/roadmap">查看迭代计划</Link></div>
       </section>
     </div>
   )

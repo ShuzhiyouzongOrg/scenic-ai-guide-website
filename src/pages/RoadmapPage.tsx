@@ -1,5 +1,5 @@
 /**
- * @fileoverview 数智游踪项目路线图页面组件。
+ * @fileoverview 智游华章项目路线图页面组件。
  *
  * @description
  * 按 MVP、架构重构与交付优化三个阶段梳理项目演进，并展示当前能力边界、
@@ -21,7 +21,7 @@ const stageFacts = [
 ]
 
 /**
- * @description 渲染数智游踪开发阶段、当前能力边界与下一阶段里程碑。
+ * @description 渲染智游华章开发阶段、当前能力边界与下一阶段里程碑。
  * @returns {JSX.Element} 包含路线图时间线和后续规划的 React 元素。
  * @example
  * <RoadmapPage />
@@ -31,15 +31,15 @@ export function RoadmapPage() {
     <div className="subpage">
       <section className="page-hero section-pad">
         <div className="container narrow">
-          <span className="competition-pill"><GitBranch size={15} /> BUILD IN PUBLIC</span>
-          <h1>每一次重构，都让导览<br /><em>更接近真实景区</em></h1>
-          <p>以 Git 历史、项目文档与当前实现为依据，记录数智游踪从 MVP 到架构重构，再到多端交付收敛的真实过程。</p>
+          <span className="competition-pill"><GitBranch size={15} /> PROJECT ROADMAP</span>
+          <h1>从一句景点问答，<br /><em>到一条有故事的游线</em></h1>
+          <p>智游华章从回答游客的第一个问题起步，逐步把灵山胜境与拈花湾的讲解串进手绘地图，再把地图和故事带到游客手边的设备上。</p>
         </div>
       </section>
 
       <section className="roadmap-section section-pad">
         <div className="container">
-          <SectionHeading eyebrow="THREE STAGES" title="三段迭代，一条完整产品化路径" />
+          <SectionHeading eyebrow="THREE STAGES" title="问答、地图与多端体验的三个阶段" />
           <div className="roadmap-timeline">
             {roadmapStages.map((stage, index) => (
               <article key={stage.title} className="roadmap-stage">
@@ -64,7 +64,7 @@ export function RoadmapPage() {
 
       <section className="roadmap-boundaries section-pad">
         <div className="container">
-          <SectionHeading eyebrow="CURRENT BOUNDARIES" title="已经跑通的能力，也经受的住真实环境的淬炼" body="数智游踪已经完成核心业务闭环、多端工程适配与安装包交付。下一阶段不再重复搭建功能骨架，而是围绕知识来源、性能度量、路线可信度、真机验收与正式发行继续收敛。" />
+          <SectionHeading eyebrow="CURRENT BOUNDARIES" title="走进真实景区，还有哪些细节要补齐？" body="智游华章已能在多种设备上提供讲解与路线。以下记录哪些景区资料可查、哪些路线数据尚待补充，以及正式发行前的验证工作。" />
           <div className="boundary-list">{[
             ['01', '知识文档深化', 'DOCX、TXT 与 Markdown 已支持解析、去重、分块和 RAG 检索，PDF 与 XLSX 已完成安全上传和内容预览。下一步将补齐 PDF 页码、XLSX 工作表与单元格级解析，让回答不仅能引用文档名称，也能进一步定位到具体页面和表格范围。'],
             ['02', '性能度量与可观测', '问答链路已经记录检索、模型生成与总响应耗时，语音链路也已拆分 ASR、RAG、LLM、TTS 和整体耗时，并支持 SSE 流式返回。下一步将统一采集首反馈、首字、首句与首音频时间，形成按平台、网络环境和服务类型统计的 P50 / P95 指标。'],
@@ -77,7 +77,7 @@ export function RoadmapPage() {
 
       <section className="next-road section-pad">
         <div className="container">
-          <SectionHeading eyebrow="NEXT MILESTONE" title="下一程：从多端可运行，走向运营闭环" body="多端工程和核心游客闭环已经建立，下一阶段将把开发成果进一步收敛为经过真机验证、具备质量度量、符合发行要求并可持续运营的正式产品。" />
+          <SectionHeading eyebrow="NEXT MILESTONE" title="下一程，让讲解在景区里用得更好" body="团队将检验手机上的地图与语音，记录游客要等多久才能听到第一句话，并把游客没听明白的问题带回内容维护工作。" />
           <div className="milestone-grid">
             {[
               ['重点 1', '全端真机验收', '建立 Android、HarmonyOS arm64、iOS 与微信小程序真机验收矩阵，统一验证地图定位、麦克风权限、语音上传、流式问答、音频播放、数字人状态切换和弱网降级。'],

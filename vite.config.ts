@@ -1,5 +1,5 @@
 /**
- * @fileoverview 数智游踪官网的 Vite 构建与开发服务器配置。
+ * @fileoverview 智游华章官网的 Vite 构建与开发服务器配置。
  *
  * @description
  * 启用 React 转换插件，并允许通过 `PUBLIC_BASE_PATH` 环境变量构建到

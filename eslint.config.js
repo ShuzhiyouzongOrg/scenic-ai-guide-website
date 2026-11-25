@@ -1,5 +1,5 @@
 /**
- * @fileoverview 数智游踪官网的 ESLint 扁平化配置。
+ * @fileoverview 智游华章官网的 ESLint 扁平化配置。
  *
  * @description
  * 为 TypeScript、React Hooks 与 React Fast Refresh 组合推荐规则，

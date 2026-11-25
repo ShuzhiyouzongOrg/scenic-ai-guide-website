@@ -1,5 +1,5 @@
 /**
- * @fileoverview 数智游踪项目创新点页面组件。
+ * @fileoverview 智游华章项目创新点页面组件。
  *
  * @description
  * 集中呈现多端交付、数字人兜底、地图兜底、知识问答与运营闭环等工程创新，
@@ -51,7 +51,7 @@ const innovations = [
 ]
 
 /**
- * @description 渲染数智游踪七项工程创新及其实现边界说明。
+ * @description 渲染智游华章七项工程创新及其实现边界说明。
  * @returns {JSX.Element} 包含创新实践列表与总结的 React 元素。
  * @example
  * <InnovationPage />
@@ -60,18 +60,18 @@ export function InnovationPage() {
   return (
     <div className="subpage innovation-page">
       <section className="page-hero section-pad">
-        <div className="container narrow"><span className="competition-pill">TECHNICAL INNOVATION</span><h1>创新不止“能演示”，<br /><em>更要可解释、可降级、可交付</em></h1><p>数智游踪把创新放在真实景区约束中衡量：网络会波动、云服务有边界、终端各不相同，核心导览仍应连续工作。</p></div>
+        <div className="container narrow"><span className="competition-pill">DIGITAL STORYTELLING</span><h1>一段景区故事，<br /><em>怎样讲到游客耳边？</em></h1><p>智游华章从景区资料中寻找答案，让数字人开口讲述，再把讲解放回地图上的景点。山间信号变弱时，游客仍能读到文字、找到路线。</p></div>
       </section>
       <section className="innovation-detail section-pad">
         <div className="container">
-          <SectionHeading eyebrow="SEVEN PRACTICES" title="七项工程创新，构成一条韧性服务链" body="每一项都对应当前代码、数据或交付链路，也明确保留仍需继续验证的边界。" />
+          <SectionHeading eyebrow="SEVEN PRACTICES" title="从景区资料到耳边讲解的七项实践" body="从一句讲解的出处，到同一段声音在不同设备上的播放，这里记录每项设计的做法和适用条件。" />
           <div className="innovation-detail-list">
             {innovations.map((item) => <article key={item.number} tabIndex={0}>
               <div className="innovation-detail-number"><span>{item.number}</span><item.icon size={23} /></div>
               <div><small>{item.subtitle}</small><h2>{item.title}</h2><p>{item.body}</p><em>{item.note}</em></div>
             </article>)}
           </div>
-          <div className="innovation-conclusion"><b>创新判断</b><p>数智游踪的重点不是堆叠模型或终端数量，而是在外部服务不稳定、景区数据存在边界、终端环境不同的条件下，仍然保持导览链路可解释、可降级、可维护和可交付。</p></div>
+          <div className="innovation-conclusion"><b>让讲解经得起追问</b><p>游客问一句“这段故事从哪儿来”，就能顺着回答查到景区资料。对讲解有疑问时，游客可以留下反馈，帮助景区核对和补充内容。</p></div>
         </div>
       </section>
     </div>

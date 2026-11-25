@@ -1,5 +1,5 @@
 /**
- * @fileoverview 数智游踪多端下载页面组件。
+ * @fileoverview 智游华章多端下载页面组件。
  *
  * @description
  * 展示网页端、桌面端与移动端的发布状态、安装包格式、官方下载链接，
@@ -16,7 +16,7 @@ import { downloadTargets, mobileTargets } from '../data/downloads'
 const targetIcons = [Globe2, MonitorDown, PackageOpen, Apple, Smartphone, Layers3]
 
 /**
- * @description 渲染数智游踪各平台的下载入口、发布状态和移动端规划。
+ * @description 渲染智游华章各平台的下载入口、发布状态和移动端规划。
  * @returns {JSX.Element} 包含多端下载卡片与发布说明的 React 元素。
  * @example
  * <DownloadPage />
@@ -26,9 +26,9 @@ export function DownloadPage() {
     <div className="subpage download-page">
       <section className="page-hero section-pad">
         <div className="container narrow">
-          <span className="competition-pill"><Laptop size={15} /> ONE PRODUCT · MANY SCREENS</span>
-          <h1>从浏览器到桌面终端，<br /><em>按你的场景进入</em></h1>
-          <p>网页端现已开放。Windows、Linux、macOS、Android 与 HarmonyOS 安装包均由自有 Linux 服务器直接分发；微信小程序入口将在二维码更新后开放。</p>
+          <span className="competition-pill"><Laptop size={15} /> LISTEN ON YOUR DEVICE</span>
+          <h1>选一台手边的设备，<br /><em>听一段山水的故事</em></h1>
+          <p>打开网页就能听数字人讲述景点来历，也可以按设备下载桌面或移动客户端。微信小程序将在二维码更新后开放。</p>
         </div>
       </section>
 
@@ -71,7 +71,7 @@ export function DownloadPage() {
 
       <section className="five-platform section-pad">
         <div className="container">
-          <SectionHeading eyebrow="MOBILE · THREE-PLATFORM" title="移动游客端三端发布" body="Android App 与 HarmonyOS 已提供安装包；微信小程序保留发布位置，待二维码更新后开放扫码入口。三端共享品牌、业务流程与数据模型，平台能力由适配层分别接管。" />
+          <SectionHeading eyebrow="MOBILE · THREE-PLATFORM" title="随身听讲解的移动端" body="Android 与 HarmonyOS 安装包已开放，可在游览途中听讲解、看地图。微信小程序将在二维码更新后开放扫码入口。" />
           <div className="platform-track">
             {mobileTargets.map((target, index) => (
               <article key={target.name} className={target.status === 'ready' ? 'ready' : ''}><span>{String(index + 1).padStart(2, '0')}</span><h3>{target.name}</h3><p>{target.note}</p><b>{target.status === 'ready' ? '已发布' : '二维码待更新'}</b></article>
